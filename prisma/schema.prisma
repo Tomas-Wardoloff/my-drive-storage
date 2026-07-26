@@ -1,0 +1,26 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model GoogleAccount {
+  id           String      @id @default(cuid())
+  email        String      @unique
+  displayName  String?
+  pictureUrl   String?
+  accessToken  String
+  refreshToken String
+  tokenStatus  TokenStatus @default(ACTIVE)
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+}
+
+enum TokenStatus {
+  ACTIVE
+  TOKEN_EXPIRED
+  REVOKED
+}
