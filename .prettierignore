@@ -1,0 +1,10 @@
+node_modules
+.next
+src/generated
+prisma/migrations
+bun.lock
+package-lock.json
+yarn.lock
+.env
+.env.*
+.agents
