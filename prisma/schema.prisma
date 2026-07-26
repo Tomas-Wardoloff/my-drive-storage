@@ -15,6 +15,9 @@ model GoogleAccount {
   accessToken  String
   refreshToken String
   tokenStatus  TokenStatus @default(ACTIVE)
+  quotaTotal   BigInt?
+  quotaUsed    BigInt?
+  lastSyncAt   DateTime?
   createdAt    DateTime    @default(now())
   updatedAt    DateTime    @updatedAt
 }
